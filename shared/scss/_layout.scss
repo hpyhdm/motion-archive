@@ -1,0 +1,17 @@
+@charset "UTF-8";
+@use "variables" as *;
+@use "mixins" as *;
+
+// Base values for to_vw() — design width 1920, fixed px at tablet and below
+// to_vw() 기준값 — 디자인 너비 1920, tablet 이하에서는 px 고정
+:root {
+    --design-width: 1920;
+    --min-width: 1024;
+    --vw-unit: calc(100vw / var(--design-width));
+    --min-ratio: calc(var(--min-width) / var(--design-width));
+
+    @include media(false, tablet) {
+        --vw-unit: 1px;
+        --min-ratio: 1;
+    }
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Motion Archive</title>
+  </head>
+  <body>
+    <main class="archive">
+      <h1 class="archive__title">Motion Archive</h1>
+      <p class="archive__desc">
+        Interaction motion prototypes rebuilt from past web projects.
+      </p>
+
+      <!-- One group per project / 프로젝트별로 그룹을 하나씩 추가합니다 -->
+      <section class="archive__group">
+        <h2 class="archive__group-title">XI Elevator</h2>
+        <ul>
+          <li class="archive__item">
+            <a href="/projects/xi-elevator/sticky-text-switch/">
+              <span>Sticky-text-switch</span>
+              <span class="archive__item-meta">Scroll · Pin · 2023</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script type="module">
+      // Load shared CSS for the index page.
+      // 목록 페이지에 공통 CSS를 불러옵니다.
+      import "@shared/scss/index.scss";
+    </script>
+  </body>
+</html>

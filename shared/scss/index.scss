@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+// Shared CSS entry point (reset + layout). Import once per page from JS/HTML.
+// 공통 CSS 진입점 (리셋 + 레이아웃). 페이지마다 JS/HTML에서 한 번만 불러옵니다.
+// Usage / 사용법: import "@shared/scss/index.scss";
+@use "reset";
+@use "layout";

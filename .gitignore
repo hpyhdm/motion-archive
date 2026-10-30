@@ -1,0 +1,21 @@
+# Dependencies / 의존성
+node_modules/
+
+# Build output / 빌드 결과물
+dist/
+
+# Logs / 로그
+*.log
+npm-debug.log*
+
+# Editor & OS / 에디터, OS 파일
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Env / 환경 변수
+.env
+.env.*
+!.env.example

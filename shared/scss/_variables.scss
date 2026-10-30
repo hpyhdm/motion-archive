@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+// font
+$Pretendard: "Pretendard", sans-serif;
+
+// media query breakpoints (moved from _mixins.scss)
+// 미디어쿼리 브레이크포인트 (_mixins.scss에서 이동)
+$breakpoints: (
+    mobile: 740px, // iPad mini innerWidth 744px issue → 740px / ipad mini innerWidth: 744px 이슈로 740px로 변경
+    tablet: 1025px,
+    laptop: 1536px,
+    sm: 360px,
+);
