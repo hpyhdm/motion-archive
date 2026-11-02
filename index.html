@@ -7,25 +7,40 @@
     <title>Motion Archive</title>
 </head>
 <body>
-<main class="archive">
-    <h1 class="archive_title">Motion Archive</h1>
-    <p class="archive_desc">
-        Interaction motion prototypes rebuilt from past web projects.
-    </p>
+<div id="wrap">
+    <!-- Static header for the index page (prototype pages use mountHeader) -->
+    <!-- 목록 페이지용 정적 헤더 (프로토타입 페이지는 mountHeader 사용) -->
+    <header id="header" class="header">
+        <h1 class="header_logo">
+            <a class="header_home" href="/">Motion Archive</a>
+        </h1>
+        <nav class="header_nav">
+            <a href="https://hpyhdm.me" target="_blank" rel="noopener">Portfolio</a>
+            <a href="https://github.com/hpyhdm/motion-archive" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+    </header>
 
-    <!-- One group per project / 프로젝트별로 그룹을 하나씩 추가합니다 -->
-    <section class="archive_group">
-        <h2 class="archive_group_title">XI Elevator</h2>
-        <ul>
-            <li class="archive_item">
-                <a href="/projects/xi-elevator/sticky-text-switch/">
-                    <span>Sticky-text-switch</span>
-                    <span class="archive_item_meta">Scroll · Pin · 2023</span>
-                </a>
-            </li>
-        </ul>
-    </section>
-</main>
+    <div id="container" class="container">
+        <main class="archive">
+            <p class="archive_desc">
+                Interaction motion prototypes rebuilt from past web projects.
+            </p>
+
+            <!-- One group per project / 프로젝트별로 그룹을 하나씩 추가합니다 -->
+            <section class="archive_group">
+                <h2 class="archive_group_title">XI Elevator</h2>
+                <ul>
+                    <li class="archive_item">
+                        <a href="/projects/xi-elevator/sticky-text-switch/">
+                            <span>Sticky-text-switch</span>
+                            <span class="archive_item_meta">Scroll · Pin · 2023</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</div>
 
 <script type="module">
     // Load shared base styles (web font + reset/layout) for the index page.
