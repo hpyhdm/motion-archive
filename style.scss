@@ -23,7 +23,7 @@
     }
 
     &_desc {
-        @include fontSize(15);
+        @include fontSize(14);
 
         strong {
             display: block;
@@ -32,7 +32,7 @@
     }
 
     &_stats {
-        @include fontSize(14);
+        @include fontSize(12);
     }
 }
 
@@ -57,6 +57,6 @@
     }
 
     span {
-        @include fontSize(15);
+        @include fontSize(14);
     }
 }

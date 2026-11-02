@@ -25,51 +25,80 @@
             @include fontSize(13)
         }
     }
+
+    .header_logo,
+    .header_back {
+        font-weight: 700;
+        color: $color-strong;
+    }
+
+    .header_nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: to_vw(12);
+
+        a {
+            @media (hover: hover) {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .header_info {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: to_vw(18);
+
+        > * {
+            position: relative;
+            @include fontSize(14);
+
+            &:last-child {
+                &::after {
+                    display: none;
+                }
+            }
+
+            &::after {
+                content: '·';
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: to_vw(-10);
+            }
+        }
+    }
 }
 
-.header_logo,
-.header_back {
-    font-weight: 700;
-    color: $color-strong;
-}
+#footer {
+    border-top: 1px dotted #ddd;
+    padding: to_vw($padding-y) to_vw($padding-x);
 
-.header_nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: to_vw(12);
+    * {
+        @include fontSize(13);
+    }
 
     a {
+        &[target="_blank"]::after {
+            content: "↗";
+            margin-left: 0.2em;
+            @include fontSize(13)
+        }
+
         @media (hover: hover) {
             &:hover {
                 text-decoration: underline;
             }
         }
     }
-}
 
-.header_info {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: to_vw(18);
-
-    > * {
-        position: relative;
-        @include fontSize(14);
-
-        &:last-child {
-            &::after {
-                display: none;
-            }
-        }
-
-        &::after {
-            content: '·';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: to_vw(-10);
-        }
+    .footer_links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 }

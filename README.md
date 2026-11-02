@@ -46,7 +46,8 @@ motion-archive/
 │  │  │  ├─ gsap.js        # GSAP + plugin registration / GSAP·플러그인 등록
 │  │  │  └─ smooth-scroll.js # Lenis synced with ScrollTrigger / ScrollTrigger와 동기화된 Lenis
 │  │  ├─ components/       # UI parts / 화면 요소
-│  │  │  └─ header.js      # top bar / 상단 바
+│  │  │  ├─ header.js      # top bar / 상단 바
+│  │  │  └─ footer.js      # footer with source link / 소스 링크가 있는 푸터
 │  │  └─ utils/
 │  │     └─ utils.js       # pure helpers / 순수 유틸 함수
 │  └─ images/              # placeholders / 플레이스홀더
@@ -62,18 +63,43 @@ motion-archive/
 ## Adding a prototype / 프로토타입 추가하기
 
 1. Create `projects/<project>/<motion>/index.html`. It is picked up by the build automatically.
+   Use `main.js` as the only script, and keep the shared favicon.
    `projects/<project>/<motion>/index.html`을 만들면 빌드에 자동으로 등록됩니다.
-2. In `main.js`, load the shared base styles first, then the header, GSAP and smooth scroll:
-   `main.js`에서 공통 기본 스타일을 가장 먼저 불러오고, 그다음 헤더, GSAP, 부드러운 스크롤을 불러옵니다.
+   스크립트는 `main.js` 하나만 연결하고, 공통 파비콘을 유지합니다.
+
+   ```html
+   <!doctype html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+       <title>Motion Name — Project Name | Motion Archive</title>
+   </head>
+   <body>
+   <div id="wrap">
+       <div id="container" class="container">
+           <!-- prototype markup / 프로토타입 마크업 -->
+       </div>
+   </div>
+   <script type="module" src="./main.js"></script>
+   </body>
+   </html>
+   ```
+
+2. In `main.js` (the page entry point), load the shared base styles first, then mount the header and footer:
+   `main.js`(페이지 진입점)에서 공통 기본 스타일을 가장 먼저 불러오고, 헤더와 푸터를 붙입니다.
 
    ```js
    import "@shared/js/setup/base.js"; // must come before ./style.scss / ./style.scss보다 먼저
+   import "./style.scss";
    import { mountHeader } from "@shared/js/components/header.js";
+   import { mountFooter } from "@shared/js/components/footer.js";
    import { gsap, ScrollTrigger } from "@shared/js/setup/gsap.js";
    import { initSmoothScroll } from "@shared/js/setup/smooth-scroll.js";
-   import "./style.scss";
 
-   mountHeader({ project: "Project Name", title: "Motion Name" });
+   mountHeader({ project: "Project Name", title: "Motion Name", meta: "Scroll · Pin · 2023" });
+   mountFooter(); // source link is built from the page path / 소스 링크는 페이지 경로로 자동 생성
    initSmoothScroll(); // skipped when reduced motion is on / '동작 줄이기' 설정 시 건너뜀
    ```
 

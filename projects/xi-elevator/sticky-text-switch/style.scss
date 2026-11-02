@@ -112,8 +112,17 @@
                     opacity: 1;
                 }
 
+                span {
+                    @include fontSize(32);
+                    color: #fff;
+                }
+
                 &01 {
-                    background: $gray-400;
+                    background: $gray-300;
+
+                    span {
+                        color: $gray-500;
+                    }
                 }
 
                 &02 {
@@ -121,12 +130,7 @@
                 }
 
                 &03 {
-                    background: $gray-600;
-                }
-
-                span {
-                    @include fontSize(32);
-                    color: #fff;
+                    background: $gray-700;
                 }
             }
         }
