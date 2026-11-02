@@ -23,7 +23,8 @@
 
     .bg_area {
         position: relative;
-        height: to_vw(520);
+        width: 100%;
+        aspect-ratio: 4 / 1;
 
         &.active {
             .bg {
@@ -42,6 +43,34 @@
             transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
         }
     }
+
+    @include media(false, tablet) {
+        padding: to_vw(60) 0;
+
+        .txt_area {
+            max-width: unset;
+            padding: 0 to_vw($padding-x);
+            margin: 0 auto to_vw(50);
+
+            .title {
+                @include fontSize(24);
+            }
+
+            p {
+                @include fontSize(16);
+            }
+        }
+
+        .bg_area {
+            position: relative;
+            height: to_vw(240);
+            aspect-ratio: unset;
+
+            .bg {
+                width: 100%;
+            }
+        }
+    }
 }
 
 .sec_sticky_text_switch {
@@ -51,92 +80,141 @@
     .inner {
         display: flex;
         height: 100%;
+    }
 
-        .txt_area,
-        .img_area {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            height: 100%;
-        }
+    .txt_area,
+    .img_area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 100%;
+    }
 
-        .txt_area {
-            width: 30%;
+    .txt_area {
+        width: 30%;
 
-            .txt {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 100%;
-                padding: 0 to_vw($padding-x);
-                opacity: 0;
-                transition: opacity 0.5s ease;
+        .txt {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            padding: 0 to_vw($padding-x);
+            opacity: 0;
+            transition: opacity 0.5s ease;
 
-                &.active {
-                    opacity: 1;
-                }
-
-                span {
-                    @include fontSize(32);
-                    font-weight: 700;
-                    color: $gray-400;
-                }
-
-                p {
-                    @include fontSize(16);
-                    max-width: 72ch;
-                    color: $gray-400;
-                }
+            &.active {
+                opacity: 1;
             }
-        }
 
-        .img_area {
-            flex: 1;
+            span {
+                @include fontSize(32);
+                font-weight: 700;
+                color: $gray-400;
+            }
 
-            .img {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 100%;
-                aspect-ratio: 1.5 / 1;
-                opacity: 0;
-                transition: opacity 0.5s ease;
-
-                &.active {
-                    opacity: 1;
-                }
-
-                span {
-                    @include fontSize(32);
-                    color: #fff;
-                }
-
-                &01 {
-                    background: $gray-300;
-
-                    span {
-                        color: $gray-500;
-                    }
-                }
-
-                &02 {
-                    background: $gray-500;
-                }
-
-                &03 {
-                    background: $gray-700;
-                }
+            p {
+                @include fontSize(16);
+                max-width: 72ch;
+                color: $gray-400;
             }
         }
     }
 
-    .sticky {
+    .img_area {
+        flex: 1;
 
+        .img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            aspect-ratio: 1.5 / 1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+
+            &.active {
+                opacity: 1;
+            }
+
+            span {
+                @include fontSize(32);
+                color: #fff;
+            }
+
+            &01 {
+                background: $gray-300;
+
+                span {
+                    color: $gray-500;
+                }
+            }
+
+            &02 {
+                background: $gray-500;
+            }
+
+            &03 {
+                background: $gray-700;
+            }
+        }
+    }
+
+    @include media(false, tablet) {
+        height: auto;
+
+        .sticky {
+            position: static;
+            height: auto;
+        }
+
+        .inner {
+            flex-direction: column;
+        }
+
+        .txt_area,
+        .img_area {
+            display: contents; // remove the box, children join .inner / 상자를 없애 자식이 .inner에 합류
+        }
+
+        .txt_area {
+            .txt {
+                position: static;
+                transform: unset;
+                padding: 0 to_vw($padding-x);
+                opacity: 1;
+
+                // txt01 → order 2, txt02 → 4, txt03 → 6
+                @for $i from 1 through 3 {
+                    &0#{$i} {
+                        order: $i * 2;
+                    }
+                }
+
+                p {
+                    max-width: unset;
+                }
+            }
+        }
+
+        .img_area {
+            .img {
+                position: static;
+                transform: unset;
+                opacity: 1;
+
+                // img01 → order 1, img02 → 3, img03 → 5
+                @for $i from 1 through 3 {
+                    &0#{$i} {
+                        order: $i * 2 - 1;
+                    }
+                }
+            }
+        }
     }
 }
