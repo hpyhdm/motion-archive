@@ -4,7 +4,7 @@ Interaction motion prototypes rebuilt from web projects I worked on.
 구축 프로젝트에서 작업했던 인터랙션 모션을 프로토타입으로 재구성해 기록하는 아카이브입니다.
 
 > All code is rewritten from scratch. Client assets (images, logos) are replaced with placeholders.
-> 모든 코드는 새로 작성했으며, 클라이언트 리소스(이미지, 로고)는 플레이스홀더로 대체했습니다.
+> 모든 코드는 새로 작성했으며, 클라이언트 리소스 (이미지, 로고)는 플레이스홀더로 대체했습니다.
 
 ## Stack / 기술 스택
 
@@ -83,4 +83,4 @@ motion-archive/
 ## Naming / 이름 규칙
 
 Folders use lowercase kebab-case, e.g. `xi-elevator/customer-focus`.
-폴더명은 소문자 + 하이픈(kebab-case)을 사용합니다. 예: `xi-elevator/customer-focus`
+폴더명은 소문자 + 하이픈 (kebab-case)을 사용합니다. 예: `xi-elevator/customer-focus`
