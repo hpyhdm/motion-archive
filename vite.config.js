@@ -31,8 +31,8 @@ const buildInputs = () =>
 export default defineConfig({
     resolve: {
         alias: {
-            // Shortcut to shared assets: import "@shared/js/gsap.js"
-            // 공통 자원 경로 단축: import "@shared/js/gsap.js"
+            // Shortcut to shared assets: import "@shared/js/setup/gsap.js"
+            // 공통 자원 경로 단축: import "@shared/js/setup/gsap.js"
             "@shared": resolve(root, "shared"),
         },
     },
