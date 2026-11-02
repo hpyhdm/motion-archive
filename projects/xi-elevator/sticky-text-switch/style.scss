@@ -2,3 +2,49 @@
 @use "@shared/scss/variables" as *;
 @use "@shared/scss/mixins" as *;
 
+.sec_visual_intro {
+    padding: to_vw(120) 0;
+
+    .txt_area {
+        max-width: to_vw(1400);
+        margin: 0 auto to_vw(100);
+
+        .title {
+            display: block;
+            margin-bottom: to_vw(12);
+            @include fontSize(48);
+            font-weight: 700;
+        }
+
+        p {
+            @include fontSize(18);
+        }
+    }
+
+    .bg_area {
+        position: relative;
+        height: to_vw(520);
+
+        &.active {
+            .bg {
+                width: 100%;
+            }
+        }
+
+        .bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: to_vw(1400);
+            height: 100%;
+            background: $gray-700;
+            transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+    }
+}
+
+.sec_sticky_text_switch {
+    height: 300vh;
+    border: 1px solid red;
+}

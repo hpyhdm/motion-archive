@@ -7,19 +7,23 @@
 </head>
 <body>
 <div id="wrap">
-    <div id="container" class="container"></div>
+    <div id="container" class="container">
+        <div class="sec sec_visual_intro">
+            <div class="txt_area">
+                <strong class="title">Lorem ipsum dolor sit amet, consectetur.</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa dolores expedita illo iste mollitia officia sequi, unde.</p>
+            </div>
+            <div class="bg_area">
+                <div class="bg"></div>
+            </div>
+        </div>
+        <div class="sec sec_sticky_text_switch">
+            <div class="sticky">
+                <div class=""></div>
+            </div>
+        </div>
+    </div>
 </div>
-<script type="module">
-    // Load shared base styles (web font + reset/layout).
-    // 공통 기본 스타일(웹폰트 + 리셋/레이아웃)을 불러옵니다.
-    import "@shared/js/setup/base.js";
-    import { mountHeader } from "@shared/js/components/header.js";
-
-    mountHeader({
-        project: "XI Elevator",
-        title: "Sticky text switch",
-        meta: "Scroll · Pin · 2023",
-    });
-</script>
+<script type="module" src="./main.js"></script>
 </body>
 </html>

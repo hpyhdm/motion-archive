@@ -19,3 +19,12 @@
 #container {
     padding-top: to_vw($header-height);
 }
+
+.sticky {
+    position: sticky;
+    top: to_vw(-1);
+    left: 0;
+    width: 100%;
+    height: calc(100vh + 2px);
+    overflow: hidden;
+}
