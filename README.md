@@ -39,6 +39,7 @@ motion-archive/
 │  │  ├─ _layout.scss      # :root vars for to_vw() / to_vw()용 :root 변수
 │  │  └─ index.scss        # shared CSS entry / 공통 CSS 진입점
 │  ├─ js/
+│  │  ├─ base.js           # web font + shared CSS / 웹폰트 + 공통 CSS
 │  │  ├─ gsap.js           # GSAP + plugin registration / GSAP·플러그인 등록
 │  │  ├─ utils.js          # pure helpers / 순수 유틸 함수
 │  │  └─ layout.js         # top bar / 상단 바
@@ -56,10 +57,11 @@ motion-archive/
 
 1. Create `projects/<project>/<motion>/index.html`. It is picked up by the build automatically.
    `projects/<project>/<motion>/index.html`을 만들면 빌드에 자동으로 등록됩니다.
-2. In `main.js`, load the shared layout and GSAP:
-   `main.js`에서 공통 레이아웃과 GSAP을 불러옵니다.
+2. In `main.js`, load the shared base styles first, then the layout and GSAP:
+   `main.js`에서 공통 기본 스타일을 가장 먼저 불러오고, 그다음 레이아웃과 GSAP을 불러옵니다.
 
    ```js
+   import "@shared/js/base.js"; // must come before ./style.scss / ./style.scss보다 먼저
    import { mountLayout } from "@shared/js/layout.js";
    import { gsap, ScrollTrigger } from "@shared/js/gsap.js";
    import "./style.scss";

@@ -141,14 +141,6 @@
     );
 }
 
-// flex
-@mixin flex($mode: flex, $justify-content: start, $align-items: normal, $wrap: wrap) {
-    display: $mode;
-    flex-wrap: $wrap;
-    justify-content: $justify-content;
-    align-items: $align-items;
-}
-
 // wordBreak
 @mixin wordBreak {
     word-break: keep-all;
