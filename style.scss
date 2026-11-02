@@ -1,0 +1,53 @@
+@charset "UTF-8";
+@use "@shared/scss/variables" as *;
+@use "@shared/scss/mixins" as *;
+
+// Styles for the archive index page only (loaded from index.html).
+// 아카이브 목록 페이지 전용 스타일 (index.html에서만 불러옴)
+
+.archive {
+    border-top: 1px dotted #ddd;
+    padding: to_vw($padding-y) to_vw($padding-x);
+
+    .desc_wrap {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        border-bottom: 1px dotted #e5e5e5;
+        padding-bottom: to_vw(8);
+        margin-bottom: to_vw(12);
+    }
+
+    &_desc {
+        @include fontSize(15);
+    }
+
+    &_stats {
+        @include fontSize(14);
+    }
+}
+
+.archive_group {
+    &_title {
+        margin-bottom: to_vw(4);
+        @include fontSize(15);
+        font-weight: 600;
+        color: $color-strong;
+    }
+
+
+}
+
+.archive_item {
+    a {
+        @media (hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    span {
+        @include fontSize(15);
+    }
+}

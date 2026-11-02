@@ -2,10 +2,12 @@
 // 순수 함수: 옵션 → 헤더 HTML 문자열 (DOM에 접근하지 않음)
 const createHeader = ({ project, title, meta = "" }) => `
     <header id="header" class="header">
-        <a class="header_back" href="/">Archive</a>
-        <span class="header_project">${project}</span>
-        <h1 class="header_title">${title}</h1>
-        ${meta ? `<span class="header_meta">${meta}</span>` : ""}
+        <a class="header_back" href="/">/ Back</a>
+        <div class="header_info">
+            <span class="header_project">${project}</span>
+            <h1 class="header_title">${title}</h1>
+            ${meta ? `<span class="header_meta">${meta}</span>` : ""}
+        </div>
     </header>
 `;
 

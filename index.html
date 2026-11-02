@@ -12,7 +12,7 @@
     <!-- 목록 페이지용 정적 헤더 (프로토타입 페이지는 mountHeader 사용) -->
     <header id="header" class="header">
         <h1 class="header_logo">
-            <a class="header_home" href="/">Motion Archive</a>
+            <a href="/">Motion Archive</a>
         </h1>
         <nav class="header_nav">
             <a href="https://hpyhdm.me" target="_blank" rel="noopener">Portfolio</a>
@@ -22,10 +22,11 @@
 
     <div id="container" class="container">
         <main class="archive">
-            <p class="archive_desc">
-                Interaction motion prototypes rebuilt from past web projects.
-            </p>
-
+            <div class="desc_wrap">
+                <p class="archive_desc">
+                    Interaction motion prototypes rebuilt from past web projects.
+                </p>
+                <p class="archive_stats" data-archive-stats></p></div>
             <!-- One group per project / 프로젝트별로 그룹을 하나씩 추가합니다 -->
             <section class="archive_group">
                 <h2 class="archive_group_title">XI Elevator</h2>
@@ -46,11 +47,12 @@
     // Load shared base styles (web font + reset/layout) for the index page.
     // 목록 페이지에 공통 기본 스타일(웹폰트 + 리셋/레이아웃)을 불러옵니다.
     import "@shared/js/setup/base.js";
-    import { initSmoothScroll } from "@shared/js/setup/smooth-scroll.js";
+    import "./style.scss";
+    import {initSmoothScroll} from "@shared/js/setup/smooth-scroll.js";
+    import {renderArchiveStats} from "@shared/js/components/archive-stats.js";
 
-    // Enable smooth scroll on the index page as well.
-    // 목록 페이지에도 부드러운 스크롤을 적용합니다.
     initSmoothScroll();
+    renderArchiveStats();
 </script>
 </body>
 </html>

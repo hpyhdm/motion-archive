@@ -30,6 +30,7 @@ npm run preview  # preview the build / 빌드 결과 미리보기
 ```
 motion-archive/
 ├─ index.html              # archive list / 전체 목록 페이지
+├─ style.scss              # archive list styles only / 목록 페이지 전용 스타일
 ├─ vite.config.js          # auto-registers projects/**/index.html / 프로토타입 페이지 자동 등록
 ├─ public/                 # copied as-is / 빌드 시 그대로 복사
 ├─ shared/                 # shared by every prototype / 모든 프로토타입 공통

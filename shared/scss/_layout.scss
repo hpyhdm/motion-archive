@@ -15,3 +15,7 @@
         --min-ratio: 1;
     }
 }
+
+#container {
+    padding-top: to_vw($header-height);
+}
