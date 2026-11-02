@@ -12,6 +12,6 @@ insert_final_newline = true
 [*.md]
 trim_trailing_whitespace = false
 
-[*.js]
+[*.{js,html}]
 ij_javascript_spaces_within_imports = true
 ij_javascript_spaces_within_object_literal_braces = true

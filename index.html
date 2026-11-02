@@ -22,12 +22,13 @@
 
     <div id="container" class="container">
         <main class="archive">
-            <div class="desc_wrap">
+            <div class="archive_intro">
                 <p class="archive_desc">
                     <strong>Motion Archive</strong>
                     Interaction motion prototypes rebuilt from past web projects.
                 </p>
-                <p class="archive_stats" data-archive-stats></p></div>
+                <p class="archive_stats" data-archive-stats></p>
+            </div>
             <!-- One group per project / 프로젝트별로 그룹을 하나씩 추가합니다 -->
             <section class="archive_group">
                 <h2 class="archive_group_title">XI Elevator</h2>
@@ -49,8 +50,8 @@
     // 목록 페이지에 공통 기본 스타일(웹폰트 + 리셋/레이아웃)을 불러옵니다.
     import "@shared/js/setup/base.js";
     import "./style.scss";
-    import {initSmoothScroll} from "@shared/js/setup/smooth-scroll.js";
-    import {renderArchiveStats} from "@shared/js/components/archive-stats.js";
+    import { initSmoothScroll } from "@shared/js/setup/smooth-scroll.js";
+    import { renderArchiveStats } from "@shared/js/components/archive-stats.js";
 
     initSmoothScroll();
     renderArchiveStats();

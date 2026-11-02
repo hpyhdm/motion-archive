@@ -9,7 +9,7 @@
     border-top: 1px dotted #ddd;
     padding: to_vw($padding-y) to_vw($padding-x);
 
-    .desc_wrap {
+    &_intro {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
