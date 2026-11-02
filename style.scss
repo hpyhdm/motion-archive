@@ -16,10 +16,19 @@
         border-bottom: 1px dotted #e5e5e5;
         padding-bottom: to_vw(8);
         margin-bottom: to_vw(12);
+
+        p {
+            line-height: 1.8;
+        }
     }
 
     &_desc {
         @include fontSize(15);
+
+        strong {
+            display: block;
+            font-weight: 700;
+        }
     }
 
     &_stats {
