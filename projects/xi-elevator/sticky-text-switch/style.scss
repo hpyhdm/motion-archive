@@ -1,6 +1,6 @@
 @charset "UTF-8";
-@use "@shared/scss/variables" as *;
-@use "@shared/scss/mixins" as *;
+@use "@common/scss/variables" as *;
+@use "@common/scss/mixins" as *;
 
 .sec_visual_intro {
     padding: to_vw(120) 0;

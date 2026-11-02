@@ -1,6 +1,6 @@
 @charset "UTF-8";
-@use "@shared/scss/variables" as *;
-@use "@shared/scss/mixins" as *;
+@use "@common/scss/variables" as *;
+@use "@common/scss/mixins" as *;
 
 // Styles for the archive index page only (loaded from index.html).
 // 아카이브 목록 페이지 전용 스타일 (index.html에서만 불러옴)

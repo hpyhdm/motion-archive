@@ -33,7 +33,7 @@ motion-archive/
 ├─ style.scss              # archive list styles only / 목록 페이지 전용 스타일
 ├─ vite.config.js          # auto-registers projects/**/index.html / 프로토타입 페이지 자동 등록
 ├─ public/                 # copied as-is / 빌드 시 그대로 복사
-├─ shared/                 # shared by every prototype / 모든 프로토타입 공통
+├─ common/                 # common to every prototype / 모든 프로토타입 공통
 │  ├─ scss/
 │  │  ├─ _variables.scss   # font, breakpoints / 폰트, 브레이크포인트
 │  │  ├─ _mixins.scss      # media(), to_vw(), fontSize(), ellipsis(), flex(), wordBreak
@@ -91,12 +91,12 @@ motion-archive/
    `main.js`(페이지 진입점)에서 공통 기본 스타일을 가장 먼저 불러오고, 헤더와 푸터를 붙입니다.
 
    ```js
-   import "@shared/js/setup/base.js"; // must come before ./style.scss / ./style.scss보다 먼저
+   import "@common/js/setup/base.js"; // must come before ./style.scss / ./style.scss보다 먼저
    import "./style.scss";
-   import { mountHeader } from "@shared/js/components/header.js";
-   import { mountFooter } from "@shared/js/components/footer.js";
-   import { gsap, ScrollTrigger } from "@shared/js/setup/gsap.js";
-   import { initSmoothScroll } from "@shared/js/setup/smooth-scroll.js";
+   import { mountHeader } from "@common/js/components/header.js";
+   import { mountFooter } from "@common/js/components/footer.js";
+   import { gsap, ScrollTrigger } from "@common/js/setup/gsap.js";
+   import { initSmoothScroll } from "@common/js/setup/smooth-scroll.js";
 
    mountHeader({ project: "Project Name", title: "Motion Name", meta: "Scroll · Pin · 2023" });
    mountFooter(); // source link is built from the page path / 소스 링크는 페이지 경로로 자동 생성
@@ -107,8 +107,8 @@ motion-archive/
    `style.scss`에서 공통 변수와 mixin을 불러옵니다 (CSS는 출력되지 않음).
 
    ```scss
-   @use "@shared/scss/variables" as *;
-   @use "@shared/scss/mixins" as *;
+   @use "@common/scss/variables" as *;
+   @use "@common/scss/mixins" as *;
    ```
 
 4. Add a link to the root `index.html`.

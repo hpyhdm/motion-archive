@@ -1,5 +1,5 @@
 import Lenis from "lenis";
-import { gsap, ScrollTrigger } from "@shared/js/setup/gsap.js";
+import { gsap, ScrollTrigger } from "@common/js/setup/gsap.js";
 
 // Pure: check the user's reduced-motion setting.
 // 순수 함수: 사용자의 '동작 줄이기' 설정 확인
