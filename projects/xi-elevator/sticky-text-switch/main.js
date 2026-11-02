@@ -25,14 +25,33 @@ function secVisualIntro() {
 
 secVisualIntro();
 
+// .sec_sticky_text_switch
+const getActiveIdx = (progress, count) =>
+    Math.min(count - 1, Math.floor(progress * count));
+
+const setActive = (items, idx) => {
+    items.forEach((item, i) => item.classList.toggle("active", i === idx));
+}
+
 function secStickyTextSwitch() {
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".sec_sticky_text_switch",
-            start: "top top",
-            end: "bottom bottom",
-            markers: true
-        }
+    const section = document.querySelector(".sec_sticky_text_switch");
+    const txts = [...section.querySelectorAll(".txt")];
+    const imgs = [...section.querySelectorAll(".img")];
+    let current = 0; // index currently shown / 현재 보이는 인덱스
+
+    ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: "bottom bottom",
+        markers: true,
+        onUpdate: ({ progress }) => {
+            const index = getActiveIdx(progress, txts.length);
+            if (index === current) return;
+
+            current = index;
+            setActive(txts, index);
+            setActive(imgs, index);
+        },
     });
 }
 

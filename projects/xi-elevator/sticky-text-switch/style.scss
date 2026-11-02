@@ -45,6 +45,94 @@
 }
 
 .sec_sticky_text_switch {
+    position: relative;
     height: 300vh;
-    border: 1px solid red;
+
+    .inner {
+        display: flex;
+        height: 100%;
+
+        .txt_area,
+        .img_area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 100%;
+        }
+
+        .txt_area {
+            width: 30%;
+
+            .txt {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                padding: 0 to_vw($padding-x);
+                opacity: 0;
+                transition: opacity 0.5s ease;
+
+                &.active {
+                    opacity: 1;
+                }
+
+                span {
+                    @include fontSize(32);
+                    font-weight: 700;
+                    color: $gray-400;
+                }
+
+                p {
+                    @include fontSize(16);
+                    max-width: 72ch;
+                    color: $gray-400;
+                }
+            }
+        }
+
+        .img_area {
+            flex: 1;
+
+            .img {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                aspect-ratio: 1.5 / 1;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+
+                &.active {
+                    opacity: 1;
+                }
+
+                &01 {
+                    background: $gray-400;
+                }
+
+                &02 {
+                    background: $gray-500;
+                }
+
+                &03 {
+                    background: $gray-600;
+                }
+
+                span {
+                    @include fontSize(32);
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .sticky {
+
+    }
 }
