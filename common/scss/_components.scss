@@ -72,6 +72,48 @@
             }
         }
     }
+
+    @include media(false, tablet) {
+        height: to_vw($header-height-m);
+    }
+
+    // Mobile: keep only Back + a single-line title (project/meta hidden)
+    // 모바일: Back + 한 줄 말줄임 title만 노출 (project/meta 숨김)
+    @include media(false, mobile) {
+        gap: to_vw(16);
+
+        a {
+            @include fontSize(14);
+        }
+
+        .header_info {
+            > * {
+                @include fontSize(12);
+            }
+        }
+
+        .header_back {
+            flex-shrink: 0;
+        }
+
+        .header_info {
+            min-width: 0;
+
+            > *::after {
+                display: none;
+            }
+        }
+
+        .header_project,
+        .header_meta {
+            display: none;
+        }
+
+        .header_title {
+            min-width: 0;
+            @include ellipsis;
+        }
+    }
 }
 
 #footer {
@@ -100,5 +142,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-top: to_vw(24);
+    }
+
+    @include media(false, tablet) {
+        * {
+            @include fontSize(12);
+        }
     }
 }

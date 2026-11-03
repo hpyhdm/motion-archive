@@ -75,7 +75,7 @@
 
 .sec_sticky_text_switch {
     position: relative;
-    height: 300vh;
+    height: 350vh;
 
     .inner {
         display: flex;
@@ -96,9 +96,9 @@
 
         .txt {
             position: absolute;
-            top: 50%;
+            top: to_vw(100);
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
             width: 100%;
             padding: 0 to_vw($padding-x);
             opacity: 0;
@@ -196,8 +196,16 @@
                     }
                 }
 
+                span {
+                    display: block;
+                    margin-bottom: to_vw(8);
+                }
+
                 p {
                     max-width: unset;
+                    margin-bottom: to_vw(96);
+                    word-break: break-word;
+                    @include fontSize(15);
                 }
             }
         }
@@ -206,6 +214,7 @@
             .img {
                 position: static;
                 transform: unset;
+                margin-bottom: to_vw(48);
                 opacity: 1;
 
                 // img01 → order 1, img02 → 3, img03 → 5
