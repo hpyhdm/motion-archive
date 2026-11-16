@@ -56,16 +56,16 @@ motion-archive/
       └─ <motion>/
          ├─ index.html
          ├─ style.scss
-         ├─ main.js
+         ├─ custom.js
          └─ README.md      # notes: context, motion, improvements / 기록
 ```
 
 ## Adding a prototype / 프로토타입 추가하기
 
 1. Create `projects/<project>/<motion>/index.html`. It is picked up by the build automatically.
-   Use `main.js` as the only script, and keep the shared favicon.
+   Use `custom.js` as the only script, and keep the shared favicon.
    `projects/<project>/<motion>/index.html`을 만들면 빌드에 자동으로 등록됩니다.
-   스크립트는 `main.js` 하나만 연결하고, 공통 파비콘을 유지합니다.
+   스크립트는 `custom.js` 하나만 연결하고, 공통 파비콘을 유지합니다.
 
    ```html
    <!doctype html>
@@ -82,13 +82,13 @@ motion-archive/
            <!-- prototype markup / 프로토타입 마크업 -->
        </div>
    </div>
-   <script type="module" src="./main.js"></script>
+   <script type="module" src="./custom.js"></script>
    </body>
    </html>
    ```
 
-2. In `main.js` (the page entry point), load the shared base styles first, then mount the header and footer:
-   `main.js`(페이지 진입점)에서 공통 기본 스타일을 가장 먼저 불러오고, 헤더와 푸터를 붙입니다.
+2. In `custom.js` (the page entry point), load the shared base styles first, then mount the header and footer:
+   `custom.js`(페이지 진입점)에서 공통 기본 스타일을 가장 먼저 불러오고, 헤더와 푸터를 붙입니다.
 
    ```js
    import "@common/js/setup/base.js"; // must come before ./style.scss / ./style.scss보다 먼저
@@ -98,7 +98,7 @@ motion-archive/
    import { gsap, ScrollTrigger } from "@common/js/setup/gsap.js";
    import { initSmoothScroll } from "@common/js/setup/smooth-scroll.js";
 
-   mountHeader({ project: "Project Name", title: "Motion Name", meta: "Scroll · Pin · 2023" });
+   mountHeader({ project: "Project Name", title: "Motion Name", meta: "Scroll · Pin · Scrub · 2023" });
    mountFooter(); // source link is built from the page path / 소스 링크는 페이지 경로로 자동 생성
    initSmoothScroll(); // skipped when reduced motion is on / '동작 줄이기' 설정 시 건너뜀
    ```
@@ -111,8 +111,8 @@ motion-archive/
    @use "@common/scss/mixins" as *;
    ```
 
-4. Add a link to the root `index.html`.
-   최상위 `index.html` 목록에 링크를 추가합니다.
+4. Add a link to the root `index.html`, using the same title and meta as `mountHeader`.
+   최상위 `index.html` 목록에 링크를 추가합니다. 이름과 meta는 `mountHeader`와 똑같이 맞춥니다.
 
 ## Naming / 이름 규칙
 

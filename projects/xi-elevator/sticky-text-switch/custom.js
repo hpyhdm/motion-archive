@@ -8,8 +8,9 @@ import { initSmoothScroll } from "@common/js/setup/smooth-scroll.js";
 mountHeader({
     project: "XI Elevator",
     title: "Sticky text switch",
-    meta: "Scroll · Pin · 2023",
+    meta: "Scroll · Sticky · Toggle · 2023",
 });
+
 mountFooter();
 initSmoothScroll();
 

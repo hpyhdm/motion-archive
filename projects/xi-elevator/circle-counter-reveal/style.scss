@@ -1,0 +1,218 @@
+@charset "UTF-8";
+@use "@common/scss/variables" as *;
+@use "@common/scss/mixins" as *;
+
+.sec_intro {
+    overflow: hidden;
+    isolation: isolate;
+    position: relative;
+    height: 100vh;
+    
+    .bg_video {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        width: 100%;
+        height: 100%;
+        
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    
+    .bg_dim {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: $gray-900;
+        opacity: 0;
+    }
+    
+    .ic_scroll_down {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: to_vw(12);
+        position: absolute;
+        bottom: to_vw(20);
+        left: 50%;
+        translate: -50% 0; // not transform: GSAP animates y without touching this / transform 대신 사용: GSAP의 y 애니메이션과 겹치지 않음
+        
+        img {
+            width: to_vw(26);
+            filter: brightness(0) invert(0.9);
+        }
+        
+        span {
+            @include fontSize(13);
+            color: #e5e5e5;
+        }
+    }
+    
+    .circle_area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        inset: 0;
+    }
+    
+    // slides up from below (GSAP) / 아래에서 올라옴 (GSAP)
+    .circle_inner {
+        text-align: center;
+        visibility: hidden;
+        transform: translateY(100vh);
+    }
+    
+    .title {
+        margin-bottom: to_vw(60);
+        @include fontSize(40);
+        font-weight: 700;
+        color: $gray-100;
+    }
+    
+    .circle_list {
+        --size: #{to_vw(380)};
+        --gap: #{to_vw(40)};
+        display: flex;
+        gap: var(--gap);
+    }
+    
+    .circle_item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--size);
+        aspect-ratio: 1;
+        border: 1px solid rgba($gray-100, 0.5);
+        border-radius: 50%;
+        
+        &:first-child {
+            transform: translateX(calc(var(--size) + var(--gap)));
+        }
+        
+        &:last-child {
+            transform: translateX(calc((var(--size) + var(--gap)) * -1));
+        }
+    }
+    
+    // fades in after the circles spread (GSAP) / 원이 펼쳐진 뒤 나타남 (GSAP)
+    .circle_txt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    
+    .num_box {
+        position: relative;
+        margin-bottom: to_vw(24);
+    }
+    
+    .num {
+        display: block;
+        @include fontSize(128, 128);
+        font-weight: 500;
+        
+        &.line {
+            color: transparent;
+            -webkit-text-stroke: 1px $gray-100;
+        }
+        
+        &.fill {
+            position: absolute;
+            inset: 0;
+            color: $gray-100;
+            clip-path: inset(100% 0 0 0);
+        }
+    }
+    
+    .label {
+        margin-bottom: to_vw(10);
+        @include fontSize(24);
+        font-weight: 600;
+        color: $gray-100;
+    }
+    
+    .value {
+        @include fontSize(40);
+        font-weight: 600;
+        color: $gray-100;
+    }
+    
+    @include media(false, tablet) {
+        height: auto;
+        
+        .bg_video {
+            position: relative;
+            height: 100vh;
+        }
+        
+        .bg_dim,
+        .ic_scroll_down {
+            display: none;
+        }
+        
+        .circle_area {
+            position: relative;
+            padding: to_vw(100) 0;
+            background: $gray-700;
+        }
+        
+        .circle_inner {
+            visibility: visible;
+            transform: none;
+        }
+        
+        .title {
+            margin-bottom: to_vw(30);
+            @include fontSize(30);
+        }
+        
+        .circle_list {
+            --size: #{to_vw(214)};
+            --gap: #{to_vw(23)};
+        }
+        
+        .circle_item {
+            transform: none !important; // also clears GSAP inline styles / GSAP 인라인 스타일도 무시
+        }
+        
+        .circle_txt {
+            opacity: 1;
+            transform: none;
+        }
+        
+        .num_box {
+            margin-bottom: to_vw(12);
+        }
+        
+        .num {
+            @include fontSize(72, 72);
+            
+            &.fill {
+                clip-path: inset(0 0 0 0);
+            }
+        }
+        
+        .label {
+            margin-bottom: to_vw(5);
+            @include fontSize(14);
+        }
+        
+        .value {
+            @include fontSize(24);
+        }
+    }
+    
+    @include media(false, mobile) {
+        .circle_list {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}

@@ -59,36 +59,28 @@
 }
 
 // font-size
-@mixin fontSize($font-size: null, $letter-spacing: null, $line-height: null, $trim: false) {
+@mixin fontSize($font-size: null, $line-height: null, $trim: false) {
     /// ❓ Optional / 선택값
-    /// $font-size, $letter-spacing, $line-height : Photoshop values / 포토샵 값
+    /// $font-size, $line-height : Photoshop values (px) / 포토샵 값 (px)
     /// $trim : true to remove top line-height space / 폰트 상단 line-height 여백 제거 시 true
+    /// e.g. / 예) @include fontSize(32, 44);  @include fontSize(32, $trim: true);
+    $lh: 1.25;
+
+    @if $font-size != null and $line-height != null {
+        $lh: math.div($line-height, $font-size);
+    }
+
     @if $font-size == null {
         font-size: 1rem;
     } @else {
         font-size: to_vw($font-size);
     }
 
-    @if $line-height == null {
-        line-height: 1.25;
-    } @else {
-        line-height: calc($line-height / $font-size);
-    }
-
-    @if $letter-spacing == null {
-        letter-spacing: -0.02em; // -2%;
-    } @else {
-        letter-spacing: #{calc($letter-spacing / 1000)}em;
-    }
+    line-height: $lh;
 
     @if $trim == true and $font-size != null {
         position: relative;
-
-        @if $line-height == null {
-            top: to_vw(-(math.div($font-size * (1.25 - 1), 2)));
-        } @else {
-            top: to_vw(-(math.div($line-height - $font-size, 2)));
-        }
+        top: to_vw(-(math.div($font-size * ($lh - 1), 2)));
     }
 }
 

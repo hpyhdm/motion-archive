@@ -5,10 +5,26 @@
 // Styles for the archive index page only (loaded from index.html).
 // 아카이브 목록 페이지 전용 스타일 (index.html에서만 불러옴)
 
-.archive {
-    border-top: 1px dotted #ddd;
-    padding: to_vw($padding-y) to_vw($padding-x);
+.home {
+    #container {
+        max-width: 1440px;
+        min-height: 100vh;
+        border-right: 1px dotted #ddd;
+        padding-top: to_vw($header-height);
+        
+        @include media(false, tablet) {
+            padding-top: to_vw($header-height-m);
+        }
+    }
+    
+    #header {
+        border-bottom: 1px dotted #ddd;
+    }
+}
 
+.archive {
+    padding: to_vw($padding-y) to_vw($padding-x);
+    
     &_intro {
         display: flex;
         align-items: flex-start;
@@ -16,21 +32,21 @@
         border-bottom: 1px dotted #e5e5e5;
         padding-bottom: to_vw(8);
         margin-bottom: to_vw(12);
-
+        
         p {
             line-height: 1.8;
         }
     }
-
+    
     &_desc {
         @include fontSize(14);
-
+        
         strong {
             display: block;
             font-weight: 700;
         }
     }
-
+    
     &_stats {
         @include fontSize(12);
     }
@@ -38,25 +54,33 @@
 
 .archive_group {
     &_title {
-        margin-bottom: to_vw(4);
-        @include fontSize(15);
+        padding-bottom: to_vw(8);
+        margin-bottom: to_vw(8);
+        border-bottom: 1px dotted #ddd;
+        @include fontSize(13);
         font-weight: 600;
         color: $color-strong;
     }
-
-
 }
 
 .archive_item {
+    margin-bottom: to_vw(8);
+    
     a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include fontSize(15);
+        
         @media (hover: hover) {
             &:hover {
                 text-decoration: underline;
             }
         }
     }
-
-    span {
-        @include fontSize(14);
+    
+    .archive_item_meta {
+        @include fontSize(12);
+        
     }
 }
